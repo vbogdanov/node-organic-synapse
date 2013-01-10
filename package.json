@@ -1,0 +1,26 @@
+{
+  "author": "Boris Filipov",
+  "concept": "Boris Filipov & Valeri Bogdanov",
+  "name": "organic-synapse",
+  "private":true, 
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VarnaLab/node-organic-synapse.git"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "organic":"latest"
+  },
+  "directories": {
+    "lib": "./lib",
+    "examples": "./examples"
+  },
+  "devDependencies": {
+    "jasmine-node": "latest"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
