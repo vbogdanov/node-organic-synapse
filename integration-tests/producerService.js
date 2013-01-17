@@ -14,7 +14,7 @@ module.exports = function Anne (plasma, config) {
     var address = chemical.address || "1";
     
     if (address === ADDR) {
-      chemical.callback(transport.createInProcess(organel.instance));
+      chemical.callback(transport.createInProcess(dataOrganel));
       return true;
     }
     
