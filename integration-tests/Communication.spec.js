@@ -1,5 +1,25 @@
 var Cell = require("../lib/Cell.js")
-, dna = require("./DNA.json");
+, dna = {
+  "membrane":{},
+  "plasma":{
+    "anne":{
+      "source":"integration-tests/anne",
+      "address":"sexy@jackhouse.com",
+      "contacts":{
+        "husband":"jack@jackhouse.com"
+      }
+    },
+    "jack":{
+      "source":"integration-tests/jack",
+      "address":"jack@jackhouse.com"
+    },
+    "peter":{
+      "source":"integration-tests/peter",
+      "address":"trouble@everywhere.com"
+    }
+  },
+  "nucleus":{}
+};
 
 describe("Communication", function(){
   it("allows for public broadcasts through the plasma or private messages toward specified address(es)", function(next){
