@@ -1,4 +1,5 @@
 var Address = require("../lib/address");
+var transport = require("../lib/Transport");
 
 module.exports = function Anne (plasma, config) {
   
