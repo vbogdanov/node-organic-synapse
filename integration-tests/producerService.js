@@ -24,6 +24,9 @@ module.exports = function Anne (plasma, config) {
   
   plasma.on("system.start", function (chemical, sender, callback) {
     console.log("producer started");
-    plasma.message(config.contacts.service, ADDR);
+    plasma.message(config.contacts.service, ADDR, function (d) {
+      console.log("callback invoked");
+      plasma.emit(d);
+    });
   }.bind(this));
 }

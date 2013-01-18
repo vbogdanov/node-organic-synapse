@@ -69,4 +69,29 @@
     gate.send(chem);
   });
   
+  it("sends messages and callback using Gateway.send(chem, callback) obtaining transport if needed", function(next){
+        var chem = { "success": true };
+  
+        var tr = Object.create(transportMock);
+        tr.send = function (chem, callback) {
+                expect(chem.success).toBe(true);
+                callback();
+        }; 
+        
+    var address = "targetAddressIsString";
+    var plasma = { 
+        "emit":function(chemical){
+                expect(chemical.address).toBe(address);
+                expect(function () {
+                        chemical.callback(tr);
+                }).not.toThrow(); //return transport
+        } 
+    };
+ 
+    var gate = new Gateway(address, plasma);
+    gate.send(chem, function () {
+      next();
+    });
+  });
+  
 });

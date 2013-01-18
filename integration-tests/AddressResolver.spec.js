@@ -21,8 +21,10 @@ describe("AddressResolution", function(){
   it("allows an organel to register as address resolver and manage its own addressable organels", function(next){
     var cell = new Cell(dna);
     
-    cell.plasma.on("success", function () {
-      next(); //success
+    cell.plasma.once("success", function () {
+      cell.plasma.once("finished", function () {
+        next(); //success + finished
+      })
     });
     
     cell.plasma.emit("system.start");
