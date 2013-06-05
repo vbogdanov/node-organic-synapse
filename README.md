@@ -1,12 +1,6 @@
-node-organic
+node-organic-synapse
 ============
 
-Organic development in node.js
+Addition to node-organic
+allows for direct communication between organelles based on addresses.
 
-cells
-=====
-https://github.com/outbounder/organic-webcell
-
-applications
-============
-https://github.com/camplight/camplight.net
