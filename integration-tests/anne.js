@@ -1,5 +1,5 @@
 module.exports = function Anne (plasma, config) {
-    plasma.on("call_me_maybe", function (msg, lover_address) {
+    plasma.on("call_me_maybe", function (msg, lover_address, useless) {
       console.log("anne flirts");
       plasma.on("out_of_town", function () {
         console.log("anne cheats with " + lover_address);
