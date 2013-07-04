@@ -1,4 +1,7 @@
-module.exports = function Anne (plasma, config) {
+var SynapsePlasmaDecoration = require("../lib/Plasma");
+
+module.exports = function Anne (_plasma, config) {
+    var plasma = _plasma.use(SynapsePlasmaDecoration);
     plasma.on("call_me_maybe", function (msg, lover_address, useless) {
       console.log("anne flirts");
       plasma.on("out_of_town", function () {

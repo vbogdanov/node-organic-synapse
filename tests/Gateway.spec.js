@@ -27,19 +27,19 @@
   });
   
   it("Gateway.obtainTransport should message the Cell Plasma asking for transport", function(next){
-  	//{ "type": "system.nucleus.TransportNeeded", callback: transportCreated, "address": address }
- 	var address = "targetAddressIsString";
+    //{ "type": "system.nucleus.TransportNeeded", callback: transportCreated, "address": address }
+    var address = "targetAddressIsString";
     var plasma = { 
-    	"emit":function(chemical){
-	    	expect(chemical.type).toEqual(Address.EVENT);
-	    	expect(typeof chemical.callback).toEqual("function");
-	    	expect(chemical.address).toBe(address);
-	    	
-	    	expect(function () {
-	    		chemical.callback(transportMock);
-	    	}).not.toThrow(); //return transport
-	    	next();
-    	} 
+      "emit":function(chemical, callback){
+              expect(chemical.type).toEqual(Address.EVENT);
+              expect(typeof callback).toEqual("function");
+              expect(chemical.address).toBe(address);
+              
+              expect(function () {
+                      callback(transportMock);
+              }).not.toThrow(); //return transport
+              next();
+      } 
     };
  
     var gate = new Gateway(address, plasma);
@@ -57,10 +57,10 @@
   	
     var address = "targetAddressIsString";
     var plasma = { 
-    	"emit":function(chemical){
+    	"emit":function(chemical, callback){
     		expect(chemical.address).toBe(address);
 	    	expect(function () {
-	    		chemical.callback(tr);
+	    		callback(tr);
 	    	}).not.toThrow(); //return transport
     	} 
     };
@@ -80,10 +80,10 @@
         
     var address = "targetAddressIsString";
     var plasma = { 
-        "emit":function(chemical){
+        "emit":function(chemical, callback){
                 expect(chemical.address).toBe(address);
                 expect(function () {
-                        chemical.callback(tr);
+                        callback(tr);
                 }).not.toThrow(); //return transport
         } 
     };

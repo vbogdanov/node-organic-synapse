@@ -26,7 +26,11 @@ describe("AddressResolution", function(){
         next(); //success + finished
       })
     });
-    
+    console.log("start");
+    cell.plasma.emit({ 
+      type:"build"
+      , branch: "plasma"
+    });
     cell.plasma.emit("system.start");
   });
 });

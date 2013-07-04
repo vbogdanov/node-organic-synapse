@@ -29,6 +29,10 @@ describe("Communication", function(){
       next(); //success
     });
     
+    cell.plasma.emit({ 
+      type:"build"
+      , branch: "plasma"
+    });
     cell.plasma.emit("system.start");
   });
 });

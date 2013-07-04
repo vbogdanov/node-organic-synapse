@@ -2,14 +2,14 @@
   "author": "Valeri Bogdanov",
   "concept": "Valeri Bogdanov",
   "name": "organic-synapse",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "git://github.com/VarnaLab/node-organic-synapse.git"
   },
   "main": "./index.js",
   "dependencies": {
-    "organic":"latest"
+    "organic":"0.1.0"
   },
   "directories": {
     "lib": "./lib",

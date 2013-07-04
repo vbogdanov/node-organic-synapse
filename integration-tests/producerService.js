@@ -1,7 +1,9 @@
 var Address = require("../lib/address");
 var transport = require("../lib/Transport");
+var SynapsePlasmaDecoration = require("../lib/Plasma.js");
 
 module.exports = function Anne (plasma, config) {
+  plasma = plasma.use(SynapsePlasmaDecoration);
   
   var ADDR = "alabala";
   var dataOrganel = {
@@ -11,11 +13,11 @@ module.exports = function Anne (plasma, config) {
     }
   }
     
-  plasma.on(Address.EVENT, function (chemical, sender, callback) {
+  plasma.on(Address.EVENT, function (chemical, callback) {
     var address = chemical.address || "1";
     
     if (address === ADDR) {
-      chemical.callback(transport.createInProcess(dataOrganel));
+      callback(transport.createInProcess(dataOrganel));
       return true;
     }
     
