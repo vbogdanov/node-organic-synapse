@@ -1,15 +1,20 @@
+/* global describe: false */
+/* global it: false */
+/* global expect: false */
+/* jshint maxstatements: 30 */
+'use strict';
 /**
  * Test Transport.createInProcessTransport(ref)
  */
  
- var Transport = require("../lib/Transport"); 
- var Address = require("../lib/address");
+ var Transport = require('../lib/Transport'); 
+ var Address = require('../lib/address');
  
- describe("Transport", function(){
-   var fakePlasma = { "emit": function () {} };
+ describe('Transport', function(){
+   var fakePlasma = { 'emit': function () {} };
  
-  it("should return an object that provides send method as described in the interface", function(){
-    var target = {}
+  it('should return an object that provides send method as described in the interface', function(){
+    var target = {};
     
     var transport = null;
     expect(function () {
@@ -17,13 +22,13 @@
     }).not.toThrow(); 
     
     expect(transport).toBeTruthy();
-    expect(typeof transport.send).toBe("function");
+    expect(typeof transport.send).toBe('function');
   });
   
-  it("should invoke the message(chem) method of the target when send is invoked", function (next) {
-    var chemical = { "success": true };
+  it('should invoke the message(chem) method of the target when send is invoked', function (next) {
+    var chemical = { 'success': true };
     var target = {
-      "message": function (chem) {
+      'message': function (chem) {
          expect(chem).toEqual(chemical);
         next();
       }
@@ -34,10 +39,10 @@
     }).not.toThrow();
   });
   
-  it("should invoke the message(chem, callback) method of the target when send is invoked", function (next) {
-    var chemical = { "success": true };
+  it('should invoke the message(chem, callback) method of the target when send is invoked', function (next) {
+    var chemical = { 'success': true };
     var target = {
-      "message": function (chem, callback) {
+      'message': function (chem, callback) {
         expect(chem).toEqual(chemical);
         callback();
       }
